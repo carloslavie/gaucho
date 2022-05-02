@@ -9,13 +9,18 @@ const Container = styled.div`
   padding: 0;
   text-align: center;
   height: 320px;
-  min-width:100% ;
-  width:100% ;
+  min-width: 100%;
+  width: 100%;
+`;
+const FlexHead = styled.div`
+  display: flex;
+  justify-content: space-between ;
+  align-items: flex-start ;
 `;
 const WrapTitle = styled.div`
   display: flex;
   align-items: center;
-  cursor:pointer;
+  cursor: pointer;
 `;
 const Title1 = styled.p`
   width: 100%;
@@ -26,8 +31,8 @@ const Title1 = styled.p`
   font-size: 120px;
   font-weight: 800;
   line-height: 1;
-  text-align: left ;
-`
+  text-align: left;
+`;
 const Title2 = styled.p`
   width: 100%;
   background: black;
@@ -37,13 +42,13 @@ const Title2 = styled.p`
   font-size: 97px;
   font-weight: 800;
   line-height: 1;
-  text-align: left ;
-`
+  text-align: left;
+`;
 const Divider = styled.div`
   width: 100%;
   height: 2px;
-  background: #FFFFFF;
-`
+  background: #ffffff;
+`;
 
 const Subtitle = styled.p`
   width: 100%;
@@ -61,25 +66,38 @@ const WrapImg = styled.div`
   margin: 0;
 `;
 
-const Header = ({tabsNav, setTabsNav}) => {
+const Header = ({ tabsNav, setTabsNav }) => {
+  const router = useRouter();
+  const handleChange = (e) => {
+    router.push(router.pathname, router.pathname, { locale: e.target.value });
+  };
   return (
     <>
       <Container>
-        <WrapTitle onClick={()=>setTabsNav('home')}>
-          <Image
-            src={"/images/logo.png"}
-            alt="logo"
-            width={162}
-            height={206}
-          />
-          <div style={{paddingLeft:'9px'}}>
-            <Title1>ACERO</Title1>
-            <Title2>GAUCHO</Title2>
-          </div>
-        </WrapTitle>
-        <button>idioma</button>
-        <Nav tabsNav={tabsNav} setTabsNav={setTabsNav}/>
-        <Divider/>
+        <FlexHead>
+          <WrapTitle onClick={() => setTabsNav("home")}>
+            <Image
+              src={"/images/logo.png"}
+              alt="logo"
+              width={162}
+              height={206}
+            />
+            <div style={{ paddingLeft: "9px" }}>
+              <Title1>ACERO</Title1>
+              <Title2>GAUCHO</Title2>
+            </div>
+          </WrapTitle>
+          <select onChange={handleChange}>
+            {router.locales.map((item, index) => (
+              <option key={index} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </FlexHead>
+
+        <Nav tabsNav={tabsNav} setTabsNav={setTabsNav} />
+        <Divider />
         {/* <Subtitle>Herramientas de campo</Subtitle> */}
       </Container>
       {/* <WrapImg>
