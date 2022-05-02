@@ -5,7 +5,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  font-family: Oswald;
+  font-family: Anton;
+  background-color: black;
+  color:#FFFFFF;
+  position: relative;
 }
 
 .footer {
