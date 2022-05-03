@@ -8,10 +8,33 @@ import styled from "styled-components";
 
 const BackIMG = styled.div`
   position: absolute;
-  opacity: 0.03;
-  top: 150px;
-  left: 1100px;
-`;
+  opacity: 0;
+  @media (min-width: 768px){
+    opacity: 0.03;
+    top: 250px;
+    left: 200px;
+  }
+  @media (min-width: 1000px){
+    top: 150px;
+    left: 400px;
+  }
+  @media (min-width: 1200px){
+    top: 150px;
+    left: 600px;
+  }
+  @media (min-width: 1440px){
+    top: 150px;
+    left: 800px;
+  }
+  @media (min-width: 1600px){
+    top: 150px;
+    left: 1000px;
+  }
+  @media (min-width: 1920px){
+    top: 150px;
+    left: 1100px;
+  }
+  `;
 
 export default function Home() {
   const [tabsNav, setTabsNav] = useState("home");

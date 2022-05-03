@@ -11,6 +11,8 @@ import About from "../Routes/About";
 const Container = styled.div`
   min-width: 100%;
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const HomeMain = ({tabsNav, setTabsNav}) => {

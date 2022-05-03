@@ -4,7 +4,12 @@ import useTranslation from 'next-translate/useTranslation';
 
 const Container = styled.div`
   padding-top: 50px;
-  width: 50% ;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  @media(min-width:768px){
+      width: 50% ;
+  }
 `
 const Title = styled.div`
   font-size: 28px;
